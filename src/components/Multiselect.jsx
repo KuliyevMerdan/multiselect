@@ -1,22 +1,22 @@
 import React, { useState, useRef, useEffect } from "react"
 
-function cn(...classes: (string | undefined | null | false)[]): string {
+function cn(...classes) {
   return classes.filter(Boolean).join(" ")
 }
 
-const ChevronDown = ({ className }: { className?: string }) => (
+const ChevronDown = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
   </svg>
 )
 
-const X = ({ className }: { className?: string }) => (
+const X = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
   </svg>
 )
 
-const Search = ({ className }: { className?: string }) => (
+const Search = ({ className }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path
       strokeLinecap="round"
@@ -27,30 +27,17 @@ const Search = ({ className }: { className?: string }) => (
   </svg>
 )
 
-export interface MultiselectOption {
-  label: string
-  value: string
-}
-
-export interface MultiselectProps {
-  options: MultiselectOption[]
-  selectedOptions: string[]
-  onSelectionChange: (selectedValues: string[]) => void
-  placeholder?: string
-  className?: string
-}
-
 export function Multiselect({
   options,
   selectedOptions,
   onSelectionChange,
   placeholder = "Select options...",
   className,
-}: MultiselectProps) {
+}) {
   const [isOpen, setIsOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
-  const dropdownRef = useRef<HTMLDivElement>(null)
-  const searchInputRef = useRef<HTMLInputElement>(null)
+  const dropdownRef = useRef(null)
+  const searchInputRef = useRef(null)
 
   // Filter options based on search term
   const filteredOptions = options.filter((option) => option.label.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -60,8 +47,8 @@ export function Multiselect({
 
   // Handle clicking outside to close dropdown
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false)
         setSearchTerm("")
       }
@@ -78,7 +65,7 @@ export function Multiselect({
     }
   }, [isOpen])
 
-  const handleToggleOption = (value: string) => {
+  const handleToggleOption = (value) => {
     const newSelectedOptions = selectedOptions.includes(value)
       ? selectedOptions.filter((v) => v !== value)
       : [...selectedOptions, value]
@@ -86,7 +73,7 @@ export function Multiselect({
     onSelectionChange(newSelectedOptions)
   }
 
-  const handleRemoveOption = (value: string) => {
+  const handleRemoveOption = (value) => {
     const newSelectedOptions = selectedOptions.filter((v) => v !== value)
     onSelectionChange(newSelectedOptions)
   }
@@ -213,4 +200,4 @@ export function Multiselect({
       )}
     </div>
   )
-}
+} 

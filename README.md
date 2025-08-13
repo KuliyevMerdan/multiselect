@@ -1,6 +1,6 @@
 # Multiselect Component Demo
 
-A comprehensive React multiselect dropdown component built with React, TypeScript, and Tailwind CSS.
+A comprehensive React multiselect dropdown component built with React and Tailwind CSS.
 
 ## Features
 
@@ -11,7 +11,6 @@ A comprehensive React multiselect dropdown component built with React, TypeScrip
 - **Keyboard navigation**: Full keyboard accessibility support
 - **Responsive design**: Works seamlessly on all device sizes
 - **Large list handling**: Scrollable dropdown for extensive option lists
-- **TypeScript support**: Fully typed for better development experience
 - **Accessibility**: ARIA attributes and screen reader support
 
 ## Component API
@@ -89,7 +88,6 @@ The demo application showcases the component using real timezone data from the T
 ### Architecture
 - **Styling**: Tailwind CSS with shadcn/ui components
 - **State Management**: React hooks (useState, useEffect, useRef)
-- **TypeScript**: Full type safety throughout
 
 ### Key Features Implementation
 
@@ -123,7 +121,6 @@ The component is highly customizable through:
 - **Tailwind classes**: Modify appearance via className prop
 - **CSS variables**: Adjust colors through shadcn/ui theme system
 - **Component structure**: Easy to extend with additional features
-- **TypeScript interfaces**: Type-safe customization options
 
 ## Browser Support
 

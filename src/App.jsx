@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
-import { Multiselect, type MultiselectOption } from "./components/Multiselect"
+import { Multiselect } from "./components/Multiselect"
 
 function App() {
-  const [timezoneOptions, setTimezoneOptions] = useState<MultiselectOption[]>([])
-  const [selectedTimezones, setSelectedTimezones] = useState<string[]>([])
+  const [timezoneOptions, setTimezoneOptions] = useState([])
+  const [selectedTimezones, setSelectedTimezones] = useState([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchTimezones = async () => {
@@ -19,9 +19,9 @@ function App() {
           throw new Error(`HTTP error! status: ${response.status}`)
         }
 
-        const timezones: string[] = await response.json()
+        const timezones = await response.json()
 
-        const options: MultiselectOption[] = timezones.map((timezone) => ({
+        const options = timezones.map((timezone) => ({
           label: timezone.replace(/_/g, " "),
           value: timezone,
         }))
@@ -39,7 +39,7 @@ function App() {
     fetchTimezones()
   }, [])
 
-  const handleSelectionChange = (selectedValues: string[]) => {
+  const handleSelectionChange = (selectedValues) => {
     setSelectedTimezones(selectedValues)
   }
 
@@ -109,4 +109,4 @@ function App() {
   )
 }
 
-export default App
+export default App 
