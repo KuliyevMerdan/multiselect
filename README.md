@@ -1,6 +1,6 @@
 # Multiselect Component Demo
 
-A comprehensive React multiselect dropdown component built with Next.js, TypeScript, and Tailwind CSS.
+A comprehensive React multiselect dropdown component built with React, TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -28,16 +28,16 @@ A comprehensive React multiselect dropdown component built with Next.js, TypeScr
 
 ### MultiselectOption Interface
 
-\`\`\`typescript
+```typescript
 interface MultiselectOption {
   label: string  // Display text
   value: string  // Unique identifier
 }
-\`\`\`
+```
 
 ## Usage Example
 
-\`\`\`tsx
+```tsx
 import { Multiselect } from '@/components/multiselect'
 
 const options = [
@@ -58,7 +58,7 @@ function MyComponent() {
     />
   )
 }
-\`\`\`
+```
 
 ## Demo Application
 
@@ -72,14 +72,14 @@ The demo application showcases the component using real timezone data from the T
 ## Running the Application
 
 1. **Install dependencies**:
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 2. **Start development server**:
-   \`\`\`bash
+   ```bash
    npm run dev
-   \`\`\`
+   ```
 
 3. **Open in browser**:
    Navigate to `http://localhost:5173`
